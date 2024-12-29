@@ -11,10 +11,8 @@ export default function Testimonials2() {
           <div className="col-lg-8 offset-lg-2 wow fadeInUp">
             <div className="row">
               <div className="col-md-10 offset-md-1 text-center">
-                <h2 className="section-title mb-70 mb-sm-40">
-                  Resonance is trusted by
-                  <span className="mark-decoration-1">10,000+</span>
-                  customers.
+                <h2 className="section-subtitle mb-70 mb-sm-40">
+                KATA MEREKA TENTANG EMAS
                 </h2>
               </div>
             </div>

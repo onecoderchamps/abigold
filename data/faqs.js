@@ -1,27 +1,21 @@
 export const faqs = [
   {
     id: 1,
-    question: "01. Discussion",
+    question: "01. Hubungi Abi Team",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.",
+      "Anda dapat menghubungi kami melalui telepon atau WhatsApp yang tersedia di situs web ini.",
   },
   {
     id: 2,
-    question: "02. Design",
+    question: "02. Transfer",
     answer:
-      "Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet dignissim pellentesque felis.",
+      "Anda dapat melakukan transfer langsung ke rekening ABI yang terpercaya.",
   },
   {
     id: 3,
-    question: "03. Development",
+    question: "03. Ketemuan atau Pengiriman",
     answer:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna.",
-  },
-  {
-    id: 4,
-    question: "04. Production",
-    answer:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna.",
+      "Anda dapat langsung menjemput emas Anda di kantor ABI atau meminta pengiriman ke rumah Anda menggunakan kurir terpercaya milik ABI.",
   },
 ];
 

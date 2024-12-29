@@ -1,20 +1,20 @@
 export const testimonials = [
   {
-    quote: `This template is so beautiful and has such wonderful new options. It is updated often which gives me even more quality. The support is one of the absolute best I've ever had the pleasure of interacting with. Quick, courteous, and extremely helpful!`,
-    author: "Adam Peterson",
+    quote: `Saya sangat puas dengan layanan PT Aurum Berkah Indonesia. Proses pembelian emasnya sangat cepat dan aman. Saya merasa tenang bertransaksi di sini.`,
+    author: "HilYathul Wahid",
     role: "Business Owner",
     image: "/assets/images/ts1-user.jpg",
   },
   {
-    quote: `This template is so beautiful and has such wonderful new options. It is updated often which gives me even more quality. The support is one of the absolute best I've ever had the pleasure of interacting with. Quick, courteous, and extremely helpful!`,
-    author: "Adam Peterson",
-    role: "Business Owner",
+    quote: `Tim ABI sangat membantu dan profesional. Mereka menjelaskan semuanya dengan jelas, dan saya merasa dihargai sebagai pelanggan. Terima kasih atas pengalaman luar biasa ini!`,
+    author: "Arsya Ibrahim",
+    role: "Pengusaha Perhiasan",
     image: "/assets/images/ts1-user.jpg",
   },
   {
-    quote: `This template is so beautiful and has such wonderful new options. It is updated often which gives me even more quality. The support is one of the absolute best I've ever had the pleasure of interacting with. Quick, courteous, and extremely helpful!`,
-    author: "Adam Peterson",
-    role: "Business Owner",
+    quote: `Sebagai pelanggan baru, saya merasa puas dengan kemudahan dan transparansi yang ditawarkan. ABI benar-benar menjadi solusi terbaik untuk kebutuhan investasi emas saya.`,
+    author: "Tabina Zaina Hilsy",
+    role: "Mahasiswa",
     image: "/assets/images/ts1-user.jpg",
   },
 ];

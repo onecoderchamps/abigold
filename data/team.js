@@ -1,43 +1,13 @@
 export const teamMembers = [
   {
-    name: "Thomas Johnson",
+    name: "Abi Signature",
     role: "Developer, co-founder",
     image: "/assets/images/team/team-1.jpg",
-    socials: [
-      { platform: "Facebook", icon: "fa-facebook-f", url: "#" },
-      { platform: "Twitter", icon: "fa-twitter", url: "#" },
-      { platform: "Pinterest", icon: "fa-pinterest-p", url: "#" },
-    ],
   },
   {
-    name: "Emma Johnson",
+    name: "Logam Mulia",
     role: "UI/UX Designer, co-founder",
     image: "/assets/images/team/team-2.jpg",
-    socials: [
-      { platform: "Facebook", icon: "fa-facebook-f", url: "#" },
-      { platform: "Twitter", icon: "fa-twitter", url: "#" },
-      { platform: "Pinterest", icon: "fa-pinterest-p", url: "#" },
-    ],
-  },
-  {
-    name: "Marta Laning",
-    role: "Web developer",
-    image: "/assets/images/team/team-4.jpg",
-    socials: [
-      { platform: "Facebook", icon: "fa-facebook-f", url: "#" },
-      { platform: "Twitter", icon: "fa-twitter", url: "#" },
-      { platform: "Pinterest", icon: "fa-pinterest-p", url: "#" },
-    ],
-  },
-  {
-    name: "Marta Laning",
-    role: "Art director, designer",
-    image: "/assets/images/team/team-3.jpg",
-    socials: [
-      { platform: "Facebook", icon: "fa-facebook-f", url: "#" },
-      { platform: "Twitter", icon: "fa-twitter", url: "#" },
-      { platform: "Pinterest", icon: "fa-pinterest-p", url: "#" },
-    ],
   },
 ];
 export const teamMembers2 = [

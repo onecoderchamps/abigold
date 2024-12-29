@@ -1,7 +1,6 @@
 export const footerLinks = [
   { name: "Privacy Policy", path: "#" },
-  { name: "Terms & Conditions", path: "#" },
-  { name: "Presskit", path: "#" },
+  { name: "Terms & Conditions", path: "#" }
 ];
 
 export const footerLinks2 = [
@@ -49,9 +48,11 @@ export const socialMediaLinks = [
 ];
 
 export const navigationLinks = [
-  { href: "#about", text: "About" },
-  { href: "#services", text: "Services" },
-  { href: "#portfolio", text: "Portfolio" },
-  { href: "#blog", text: "Blog" },
-  { href: "#contact", text: "Contact" },
+  { href: "#about", text: "Beranda" },
+  { href: "#services", text: "Produk" },
+  { href: "#portfolio", text: "Tentang" },
+  { href: "#blog", text: "Hubungi Kami" },
+  { href: "#contact", text: "Agen" },
+  { href: "#contact", text: "Authentikasi Emas" },
+
 ];

@@ -93,7 +93,7 @@ export default function Home1({ onePage = false, dark = false }) {
           </div>
         </div>
       </ParallaxContainer>
-      
+
       <hr className={`mt-0 mb-0 ${dark ? "white" : ""}`} />
       <section
         className={`page-section  ${dark ? "bg-dark-1 light-content" : ""}`}
@@ -156,7 +156,7 @@ export default function Home1({ onePage = false, dark = false }) {
                 data-wow-duration="1.2s"
                 data-wow-offset={255}
               >
-                <h2 className="section-title mb-50 mb-sm-20">How we work?</h2>
+                <h4 className=" mb-50 mb-sm-40">Bagaimana cara memesan ABI gold?</h4>
                 <Faq />
                 <div className="local-scroll">
                   {onePage ? (
@@ -181,27 +181,19 @@ export default function Home1({ onePage = false, dark = false }) {
           </div>
         </div>
       </section>
-      
-      
 
       <hr className={`mt-0 mb-0 ${dark ? "white" : ""}`} />
       <section className={`page-section  ${dark ? " light-content" : ""}`}>
         {dark ? <Brands2 /> : <Brands />}
       </section>
-      
+
       <section
         className={`page-section pt-0 pb-0  ${dark ? "light-content" : ""}`}
       >
         {" "}
         {dark ? <Testimonials2 /> : <Testimonials />}
       </section>
-      <section
-        className="page-section"
-      >
-        <NewsLetter />
-      </section>
-      <hr className={`mt-0 mb-0 ${dark ? "white" : ""}`} />
-      
+
       <section
         className={`page-section  scrollSpysection  ${
           dark ? "bg-dark-1 light-content" : ""
@@ -210,57 +202,7 @@ export default function Home1({ onePage = false, dark = false }) {
       >
         <Contact />{" "}
       </section>
-      <section
-        className={`page-section  ${
-          dark ? "bg-dark-1 light-content z-index-1" : ""
-        }`}
-      >
-        <div className="container position-relative">
-          {/* Decorative Waves */}
-          <div
-            className="decoration-3 d-none d-sm-block"
-            data-rellax-y=""
-            data-rellax-speed="-0.7"
-            data-rellax-percentage="0.5"
-          >
-            <Image
-              width={148}
-              height={148}
-              className="svg-shape"
-              src="/assets/images/decoration-3.svg"
-              alt=""
-            />
-          </div>
-          {/* End Decorative Waves */}
-          <div className="row text-center wow fadeInUp">
-            <div className="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-              <p className="section-descr mb-50 mb-sm-30">
-                The power of design help us to solve complex problems and
-                cultivate business solutions.
-              </p>
-              <div className="local-scroll">
-                {onePage ? (
-                  <a
-                    href="#contact"
-                    className="btn btn-mod btn-large btn-round btn-hover-anim"
-                  >
-                    <span>Contact us</span>
-                  </a>
-                ) : (
-                  <Link
-                    href={`/main-pages-contact-1${dark ? "-dark" : ""}`}
-                    className="btn btn-mod btn-large btn-round btn-hover-anim"
-                  >
-                    <span>Contact us</span>
-                  </Link>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-       {/* <hr className={`mt-0 mb-0 ${dark ? "white" : ""}`} />
+      {/* <hr className={`mt-0 mb-0 ${dark ? "white" : ""}`} />
       <section
         className={`page-section  scrollSpysection  ${
           dark ? "bg-dark-1 light-content" : ""

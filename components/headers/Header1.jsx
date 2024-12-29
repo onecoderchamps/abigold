@@ -46,12 +46,12 @@ export default function Header1({ links }) {
         </ul>
         <ul className="items-end clearlist local-scroll">
           {/* Languages */}
-          <LanguageSelect />
+          {/* <LanguageSelect /> */}
           {/* End Languages */}
           <li>
             <a href="#contact" className="opacity-1 no-hover">
               <span className="link-hover-anim underline" data-link-animate="y">
-                Let's work together
+                Abi Panel
               </span>
             </a>
           </li>

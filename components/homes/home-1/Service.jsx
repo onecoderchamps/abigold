@@ -7,9 +7,9 @@ export default function Service() {
     <div className="container position-relative">
       <div className="row">
         <div className="col-lg-6 mb-md-60 mb-sm-30">
-          <h2 className="section-caption mb-xs-10">Our Services</h2>
+          <h2 className="section-caption mb-xs-10">Layanan Kami</h2>
           <h3 className="section-title mb-30">
-            <AnimatedText text="We provide the best development solutions." />
+            <AnimatedText text="Kami menyediakan solusi pengembangan terbaik." />
           </h3>
           <div className="row">
             <div className="col-lg-10">
@@ -17,8 +17,7 @@ export default function Service() {
                 className="section-descr mb-50 mb-sm-30 wow fadeInUp"
                 data-wow-delay="0.4s"
               >
-                The power of design help us to solve complex problems and
-                cultivate business solutions.
+               Kekuatan pengalaman kami mengatasi tantangan kompleks dan menciptakan solusi investasi, khususnya dalam perdagangan dan investasi emas.
               </p>
             </div>
           </div>
@@ -36,7 +35,7 @@ export default function Service() {
                 aria-selected="true"
                 data-bs-toggle="tab"
               >
-                Brand Strategy <span className="number">01</span>
+                Perdagangan Emas <span className="number">01</span>
               </a>
             </li>
             <li role="presentation">
@@ -47,7 +46,7 @@ export default function Service() {
                 aria-selected="false"
                 data-bs-toggle="tab"
               >
-                Art Direction <span className="number">02</span>
+                Berpengalaman <span className="number">02</span>
               </a>
             </li>
             <li role="presentation">
@@ -58,42 +57,9 @@ export default function Service() {
                 aria-selected="false"
                 data-bs-toggle="tab"
               >
-                Creative Design <span className="number">03</span>
+                Solusi Investasi <span className="number">03</span>
               </a>
-            </li>
-            <li role="presentation">
-              <a
-                href="#services-item-4"
-                aria-controls="services-item-4"
-                role="tab"
-                aria-selected="false"
-                data-bs-toggle="tab"
-              >
-                Development <span className="number">04</span>
-              </a>
-            </li>
-            <li role="presentation">
-              <a
-                href="#services-item-5"
-                aria-controls="services-item-5"
-                role="tab"
-                aria-selected="false"
-                data-bs-toggle="tab"
-              >
-                Photography <span className="number">05</span>
-              </a>
-            </li>
-            <li role="presentation">
-              <a
-                href="#services-item-6"
-                aria-controls="services-item-6"
-                role="tab"
-                aria-selected="false"
-                data-bs-toggle="tab"
-              >
-                Marketing <span className="number">06</span>
-              </a>
-            </li>
+            </li> 
           </ul>
         </div>
         <div
@@ -110,11 +76,8 @@ export default function Service() {
             >
               <div className="services-text">
                 <div className="services-text-container">
-                  <h4 className="services-title">Brand Strategy</h4>
                   <p className="text-gray mb-0">
-                    The core identity reflects consistent associations with the
-                    brand whereas the extended identity involves the intricate
-                    details of the brand that help generate a constant motif.
+                    Beli dan jual emas batangan fisik dengan mudah. Kami menyediakan harga kompetitif dan solusi penyimpanan aman.
                   </p>
                 </div>
               </div>
@@ -135,11 +98,8 @@ export default function Service() {
             >
               <div className="services-text">
                 <div className="services-text-container">
-                  <h4 className="services-title">Art Direction</h4>
                   <p className="text-gray mb-0">
-                    The core identity reflects consistent associations with the
-                    brand whereas the extended identity involves the intricate
-                    details of the brand that help generate a constant motif.
+                  Tetap terinformasi dengan analisis, wawasan, dan laporan pasar dari ahli kami untuk mendukung keputusan perdagangan Anda.
                   </p>
                 </div>
               </div>
@@ -160,11 +120,8 @@ export default function Service() {
             >
               <div className="services-text">
                 <div className="services-text-container">
-                  <h4 className="services-title">Creative Design</h4>
                   <p className="text-gray mb-0">
-                    The core identity reflects consistent associations with the
-                    brand whereas the extended identity involves the intricate
-                    details of the brand that help generate a constant motif.
+                    Baik Anda pemula atau investor berpengalaman, kami menawarkan strategi investasi yang dipersonalisasi untuk mencapai tujuan keuangan Anda.
                   </p>
                 </div>
               </div>

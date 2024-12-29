@@ -15,12 +15,12 @@ export default function Team() {
               ”
             </div>
             <p>
-              We are strong team who brings innovative ideas into production.
+            Produk ABI Gold
             </p>
             <footer>
               <div className="section-line mb-10" />
-              Thomas Johnson
-              <div className="small">Developer, Co-founder</div>
+              Piliihan emas terbaik untuk investasi anda. Kami menyediakan solusi investasi yang mudah diakses, terjangkau, dan menguntungkan bagi setiap lapisan masyarakat, dengan pelayanan yang cepat, ramah, dan profesional.
+              {/* <div className="small">Developer, Co-founder</div> */}
             </footer>
           </blockquote>
         </div>
@@ -67,25 +67,11 @@ export default function Team() {
                         />
                         <div className="team-item-detail">
                           <div className="team-social-links">
-                            {member.socials.map((social, socialIndex) => (
-                              <a
-                                href={social.url}
-                                target="_blank"
-                                rel="noopener nofollow"
-                                key={socialIndex}
-                              >
-                                <div className="visually-hidden">
-                                  {social.platform}
-                                </div>
-                                <i className={social.icon} />
-                              </a>
-                            ))}
                           </div>
                         </div>
                       </div>
                       <div className="team-item-descr">
                         <div className="team-item-name">{member.name}</div>
-                        <div className="team-item-role">{member.role}</div>
                       </div>
                     </div>
                   </div>
