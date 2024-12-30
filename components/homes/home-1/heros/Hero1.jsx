@@ -75,8 +75,8 @@ export default function Hero1() {
                     data-wow-delay="1.2s"
                     data-wow-duration="1.75s"
                   >
-                    <Image
-                      src="/assets/images/stack-image-1.jpg"
+                    <img
+                      src="https://demo.webdeveloperjogja.com/goldabi/images/produk/emas-batangan-1-gram-32.jpeg.webp"
                       alt="Image Description"
                       width={600}
                       height={800}
@@ -92,10 +92,10 @@ export default function Hero1() {
                     data-wow-delay="1.7s"
                     data-wow-duration="1.75s"
                   >
-                    <Image
+                    <img
                       width={600}
                       height={800}
-                      src="/assets/images/stack-image-2.jpg"
+                      src="https://demo.webdeveloperjogja.com/goldabi/images/produk/1-dinar-425-gram-45.jpeg.webp"
                       alt="Image Description"
                     />
                   </div>
@@ -109,10 +109,10 @@ export default function Hero1() {
                     data-wow-delay="2.2s"
                     data-wow-duration="1.75s"
                   >
-                    <Image
+                    <img
                       width={600}
                       height={800}
-                      src="/assets/images/stack-image-3.jpg"
+                      src="https://demo.webdeveloperjogja.com/goldabi/images/produk/1-dinar-425-gram-45.jpeg.webp"
                       alt="Image Description"
                     />
                   </div>
@@ -124,19 +124,7 @@ export default function Hero1() {
         </div>
         {/* End Home Section Content */}
         {/* Scroll Down */}
-        <div
-          className="local-scroll scroll-down-wrap-type-1 wow fadeInUp"
-          data-wow-offset={0}
-        >
-          <div className="container">
-            <a href="#about" className="scroll-down-1">
-              <div className="scroll-down-1-icon">
-                <i className="mi-arrow-down" />
-              </div>
-              <div className="scroll-down-1-text">Scroll Down</div>
-            </a>
-          </div>
-        </div>
+        
         {/* End Scroll Down */}
       </div>
       <ModalVideo

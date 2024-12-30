@@ -15,7 +15,7 @@ export default function Facts() {
             }`}
             data-wow-delay={item.delay}
           >
-            <div className="number-title mb-10">{item.title}</div>
+            <div className="section-descr mb-10">{item.title}</div>
             <div className="number-descr">{item.description}</div>
           </div>
         ))}

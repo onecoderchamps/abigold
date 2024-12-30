@@ -8,9 +8,11 @@ export default function FooterSocials() {
   return (
     <>
       {socials.map((social, index) => (
-        <li key={index}>
+        <li key={index} className="text-white">
           <a href={social.url} rel="noopener nofollow" target="_blank">
-            <i className={social.icon} /> {social.name}
+            <div className="text-white">
+              {social.name}
+              </div>
           </a>
         </li>
       ))}

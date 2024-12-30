@@ -9,10 +9,10 @@ export default function Contact() {
         <div className="col-lg-6">
           <div className="row mb-50">
             <div className="col-lg-10">
-              <h2 className="section-caption mb-xs-10">Contact Us</h2>
+              <h2 className="section-caption mb-xs-10">Bergabung Sebagai Agen</h2>
               <h3 className="section-title mb-0">
                 <span className="wow charsAnimIn" data-splitting="chars">
-                  <AnimatedText text="Let’s start the productive work." />
+                  <AnimatedText text="jadilah mitra terpercaya dalam perdagangan emas." />
                 </span>
               </h3>
             </div>
@@ -52,14 +52,14 @@ export default function Contact() {
                     </svg>
                   </div>
                 </div>
-                <h4 className="alt-features-title">Say hello</h4>
+                <h4 className="alt-features-title">Hubungi Kami</h4>
                 <div className="alt-features-descr clearlinks">
                   <div>
                     <a href="mailto:ibthemes21@gmail.com">
-                      ibthemes21@gmail.com
+                      cs@abigold.com
                     </a>
                   </div>
-                  <div>+1 837 652 8800</div>
+                  <div>+62(0)21 5095 5013</div>
                 </div>
               </div>
             </div>
@@ -84,9 +84,9 @@ export default function Contact() {
                     <path d="M12 10c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.896 2-2 2m0-5c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3m-7 2.602c0-3.517 3.271-6.602 7-6.602s7 3.085 7 6.602c0 3.455-2.563 7.543-7 14.527-4.489-7.073-7-11.072-7-14.527m7-7.602c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602" />
                   </svg>
                 </div>
-                <h4 className="alt-features-title">Location</h4>
+                <h4 className="alt-features-title">Alamat Kami</h4>
                 <div className="alt-features-descr">
-                  123 King Street, London W6 9JG, United Kingdom
+                The Plaza Office Tower, Level 7 #7058 Jl. MH Thamrin Kav. 28-39 Jakarta 10350 - Indonesia
                 </div>
               </div>
             </div>
@@ -106,13 +106,13 @@ export default function Contact() {
               <div className="col-lg-6">
                 {/* Name */}
                 <div className="form-group">
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="name">Nama Lengkap</label>
                   <input
                     type="text"
                     name="name"
                     id="name"
                     className="input-lg round form-control"
-                    placeholder="Enter your name"
+                    placeholder="Masukkan Nama Lengkap"
                     pattern=".{3,100}"
                     required
                     aria-required="true"
@@ -128,7 +128,39 @@ export default function Contact() {
                     name="email"
                     id="email"
                     className="input-lg round form-control"
-                    placeholder="Enter your email"
+                    placeholder="Masukkan Email"
+                    pattern=".{5,100}"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+              </div>
+              <div className="col-lg-6">
+                {/* Email */}
+                <div className="form-group">
+                  <label htmlFor="email">No Ponsel</label>
+                  <input
+                    type="number"
+                    name="email"
+                    id="email"
+                    className="input-lg round form-control"
+                    placeholder="Masukkan no Ponsel"
+                    pattern=".{5,100}"
+                    required
+                    aria-required="true"
+                  />
+                </div>
+              </div>
+              <div className="col-lg-6">
+                {/* Email */}
+                <div className="form-group">
+                  <label htmlFor="email">Domisili</label>
+                  <input
+                    type="text"
+                    name="alamat"
+                    id="alamat"
+                    className="input-lg round form-control"
+                    placeholder="Masukkan alamat anda"
                     pattern=".{5,100}"
                     required
                     aria-required="true"
@@ -137,17 +169,6 @@ export default function Contact() {
               </div>
             </div>
             {/* Message */}
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                name="message"
-                id="message"
-                className="input-lg round form-control"
-                style={{ height: 130 }}
-                placeholder="Enter your message"
-                defaultValue={""}
-              />
-            </div>
             <div className="row">
               <div className="col-lg-5">
                 {/* Send Button */}
@@ -157,7 +178,7 @@ export default function Contact() {
                     id="submit_btn"
                     aria-controls="result"
                   >
-                    <span>Send Message</span>
+                    <span>Daftar Sekarang</span>
                   </button>
                 </div>
               </div>
@@ -165,9 +186,8 @@ export default function Contact() {
                 {/* Inform Tip */}
                 <div className="form-tip pt-20 pt-sm-0 mt-sm-20">
                   <i className="icon-info size-16" />
-                  All the fields are required. By sending the form you agree to
-                  the <a href="#">Terms &amp; Conditions</a> and{" "}
-                  <a href="#">Privacy Policy</a>.
+                  Semua kolom wajib diisi. Dengan mengirimkan formulir ini, Anda setuju dengan <a href="#">Syarat &amp; Ketentuan</a> serta{" "}
+                  <a href="#">Kebijakan Privasi.</a>.
                 </div>
               </div>
             </div>
@@ -184,7 +204,7 @@ export default function Contact() {
           {/* Google Map */}
           <div className="map-boxed">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3071.5318265717196!2d-75.60465104752062!3d39.660249785873326!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c703f3cdadbfdb%3A0x80d20252268fc006!2zMjQ1IFF1aWdsZXkgQmx2ZCBzdGUgaywgTmV3IENhc3RsZSwgREUgMTk3MjAsINCh0L_QvtC70YPRh9C10L3RliDQqNGC0LDRgtC4INCQ0LzQtdGA0LjQutC4!5e0!3m2!1suk!2sua!4v1662469609333!5m2!1suk!2sua"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5298936384697!2d106.8193718756367!3d-6.193592360680227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f42108e6d503%3A0x7d7fe17ad64a053f!2sPlaza%20Indonesia!5e0!3m2!1sid!2sid!4v1735521745887!5m2!1sid!2sid"
               width={600}
               height={450}
               style={{ border: 0 }}

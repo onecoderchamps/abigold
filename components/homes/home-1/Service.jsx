@@ -81,11 +81,11 @@ export default function Service() {
                   </p>
                 </div>
               </div>
-              <Image
+              <img
                 width={945}
                 height={1016}
                 className="services-image"
-                src="/assets/images/services/service-1.jpg"
+                src="https://demo.webdeveloperjogja.com/goldabi/images/page/all-about-gold-93.png.webp"
                 alt="Image Description"
               />
             </div>
@@ -103,11 +103,11 @@ export default function Service() {
                   </p>
                 </div>
               </div>
-              <Image
+              <img
                 width={945}
                 height={1016}
                 className="services-image"
-                src="/assets/images/services/service-2.jpg"
+                src="https://demo.webdeveloperjogja.com/goldabi/images/page/all-about-gold-93.png.webp"
                 alt="Image Description"
               />
             </div>
@@ -125,11 +125,11 @@ export default function Service() {
                   </p>
                 </div>
               </div>
-              <Image
+              <img
                 width={945}
                 height={1016}
                 className="services-image"
-                src="/assets/images/services/service-3.jpg"
+                src="https://demo.webdeveloperjogja.com/goldabi/images/page/all-about-gold-93.png.webp"
                 alt="Image Description"
               />
             </div>

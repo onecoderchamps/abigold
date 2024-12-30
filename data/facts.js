@@ -2,26 +2,20 @@ export const numberItems = [
   {
     id: 1,
     delay: "0.4s",
-    title: "28%",
-    description: "Resent tincidunt lacus sedenim posuere posuere nulla acusan.",
+    title: "Rp 500 K/gram",
+    description: "Kenaikan.",
   },
   {
     id: 2,
     delay: "0.6s",
-    title: "1.5k",
-    description: "Curabitur eu quam auctor nuca convallis metus nec feugia.",
+    title: "Rp 1.500 K/gram",
+    description: "Harga Terakhir",
   },
   {
     id: 3,
-    delay: "0.8s",
-    title: "30+",
-    description: "Pellentesque pharetra libero eget vestibulum ullamcorper.",
-  },
-  {
-    id: 4,
-    delay: "1s",
-    title: "2x",
-    description: "Suspendisse a scelerisque vitae rutrum posuere sec lacus.",
+    delay: "0.6s",
+    title: "27 Desember 2024",
+    description: "Perubahan Terakhir",
   },
 ];
 export const numberItems2 = [

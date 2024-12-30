@@ -58,8 +58,8 @@ export default function Team() {
                   <div className="team-carousel-item">
                     <div className="team-item">
                       <div className="team-item-image">
-                        <Image
-                          width={600}
+                        <img
+                          width={400}
                           height={800}
                           src={member.image}
                           className="wow scaleOutIn"

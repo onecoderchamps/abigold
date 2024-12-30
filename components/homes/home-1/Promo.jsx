@@ -71,10 +71,10 @@ export default function Promo() {
         <div className="col-lg-6 d-flex align-items-start">
           <div className="call-action-3-images mt-xs-0 text-end">
             <div className="call-action-3-image-1">
-              <Image
+              <img
                 width={633}
                 height={821}
-                src="/assets/images/promo-6.jpg"
+                src="https://demo.webdeveloperjogja.com/goldabi/images/keunggulan_layanan/proses-pembayaran-buyback-real-time-27.jpeg.webp"
                 alt="Image Description"
                 className="wow scaleOutIn"
                 data-wow-duration="1.2s"
@@ -88,10 +88,10 @@ export default function Promo() {
                 data-rellax-speed="0.85"
                 data-rellax-percentage="0.5"
               >
-                <Image
+                <img
                   width={386}
                   height={500}
-                  src="/assets/images/promo-7.jpg"
+                  src="https://demo.webdeveloperjogja.com/goldabi/images/keunggulan_layanan/pengendalian-mutu-quality-control-cetakan-emas-74.jpeg.webp"
                   alt="Image Description"
                   className="wow scaleOutIn"
                   data-wow-duration="1.2s"

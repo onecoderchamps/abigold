@@ -238,10 +238,10 @@ export const mainDemoOnepage = [
 
 export const menuItems = [
   { href: "#home", text: "Beranda", className: "active" },
-  { href: "#about", text: "Produk" },
-  { href: "#services", text: "Tentang" },
-  { href: "#portfolio", text: "Hubungi Kami" },
-  { href: "#blog", text: "Agen" },
+  { href: "#produk", text: "Produk" },
+  { href: "#services", text: "Keunggulan" },
+  { href: "#pemesanan", text: "Cara Pemesanan" },
+  { href: "#contact", text: "Mitra ABI" },
   { href: "#contact", text: "Authentikasi Emas" },
 ];
 

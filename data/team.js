@@ -2,12 +2,12 @@ export const teamMembers = [
   {
     name: "Abi Signature",
     role: "Developer, co-founder",
-    image: "/assets/images/team/team-1.jpg",
+    image: "https://demo.webdeveloperjogja.com/goldabi/images/produk/1-dinar-425-gram-45.jpeg.webp",
   },
   {
     name: "Logam Mulia",
     role: "UI/UX Designer, co-founder",
-    image: "/assets/images/team/team-2.jpg",
+    image: "https://demo.webdeveloperjogja.com/goldabi/images/produk/emas-batangan-1-gram-32.jpeg.webp",
   },
 ];
 export const teamMembers2 = [

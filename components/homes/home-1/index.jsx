@@ -19,6 +19,8 @@ import Testimonials2 from "./Teatimonials2";
 import Brands2 from "./Brands2";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import GoldPriceChart from "./Chart";
+import ServiceHarga from "./ServiceHarga";
 const ParallaxContainer = dynamic(
   () => import("@/components/common/ParallaxContainer"),
   {
@@ -34,10 +36,11 @@ export default function Home1({ onePage = false, dark = false }) {
         <Promo />{" "}
       </section>
       <section
-        className={`page-section  scrollSpysection  ${
-          dark ? "bg-dark-2 light-content" : "bg-gray-light-1 "
+        className={`page-section scrollSpysection ${
+          dark ? "bg-dark-2 light-content" : ""
         }`}
-        id="team"
+        style={{ backgroundColor: !dark ? "#B76E7920" : undefined }}
+        id="produk"
       >
         <Team />
       </section>
@@ -53,50 +56,22 @@ export default function Home1({ onePage = false, dark = false }) {
 
       <ParallaxContainer
         className="page-section bg-dark-1 bg-dark-alpha-90 parallax-5 light-content"
-        style={{
-          backgroundImage:
-            "url(/assets/images/full-width-images/section-bg-2.jpg)",
-        }}
+        
       >
         <div className="container position-relative">
-          <div className="row">
-            <div className="col-lg-4 mb-md-60 mb-xs-50">
-              <h2 className="section-title mb-20 wow fadeInUp">
-                Check recent achievements.
-              </h2>
-              <p
-                className="section-descr mb-40 wow fadeInUp"
-                data-wow-delay="0.1s"
-              >
-                We provide the effective ideas that grow businesses of our
-                clients.
-              </p>
-              <div className="local-scroll wow fadeInUp" data-wow-delay="0.2s">
-                {onePage ? (
-                  <a
-                    href="#contact"
-                    className="btn btn-mod btn-w btn-large btn-round btn-hover-anim"
-                  >
-                    <span>Request Price</span>
-                  </a>
-                ) : (
-                  <Link
-                    href={`/main-pages-contact-1${dark ? "-dark" : ""}`}
-                    className="btn btn-mod btn-w btn-large btn-round btn-hover-anim"
-                  >
-                    <span>Request Price</span>
-                  </Link>
-                )}
-              </div>
-            </div>{" "}
-            <Facts />
-          </div>
+          <h4 className="mb-50 mb-sm-40 text-center">
+            Tren Kenaikan Harga Emas
+          </h4>
+          <GoldPriceChart />
         </div>
       </ParallaxContainer>
 
       <hr className={`mt-0 mb-0 ${dark ? "white" : ""}`} />
       <section
-        className={`page-section  ${dark ? "bg-dark-1 light-content" : ""}`}
+        className={`page-section  scrollSpysection  ${
+          dark ? "bg-dark-1 light-content" : ""
+        }`}
+        id="pemesanan"
       >
         <div className="container position-relative">
           <div className="row">
@@ -109,10 +84,10 @@ export default function Home1({ onePage = false, dark = false }) {
                   data-rellax-speed="0.5"
                   data-rellax-percentage="0.7"
                 >
-                  <Image
+                  <img
                     width={386}
                     height={400}
-                    src="/assets/images/promo-3.jpg"
+                    src="https://ec-cstatic.akulaku.net/web-site/_nuxt/img/h5_au_cu_banner.98a5986.png"
                     alt="Image Description"
                     className="wow scaleOutIn"
                     data-wow-duration="1.2s"
@@ -120,10 +95,10 @@ export default function Home1({ onePage = false, dark = false }) {
                   />
                 </div>
                 <div className="call-action-2-image-2">
-                  <Image
+                  <img
                     width={810}
                     height={512}
-                    src="/assets/images/promo-4.jpg"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUH0Quamgn74pqh6vB-JhOqh8B9sInohf0FA&s"
                     alt="Image Description"
                     className="wow scaleOutIn"
                     data-wow-duration="1.2s"
@@ -136,10 +111,10 @@ export default function Home1({ onePage = false, dark = false }) {
                   data-rellax-speed="-0.5"
                   data-rellax-percentage="0.5"
                 >
-                  <Image
+                  <img
                     width={386}
                     height={500}
-                    src="/assets/images/promo-5.jpg"
+                    src="https://biteship.com/blog/wp-content/uploads/2023/05/peraturan-cod.jpg"
                     alt="Image Description"
                     className="wow scaleOutIn"
                     data-wow-duration="1.2s"
@@ -156,7 +131,9 @@ export default function Home1({ onePage = false, dark = false }) {
                 data-wow-duration="1.2s"
                 data-wow-offset={255}
               >
-                <h4 className=" mb-50 mb-sm-40">Bagaimana cara memesan ABI gold?</h4>
+                <h4 className=" mb-50 mb-sm-40">
+                  Bagaimana cara memesan ABI gold?
+                </h4>
                 <Faq />
                 <div className="local-scroll">
                   {onePage ? (
@@ -180,6 +157,12 @@ export default function Home1({ onePage = false, dark = false }) {
             {/* End Text */}
           </div>
         </div>
+      </section>
+      <hr className={`mt-0 mb-0 ${dark ? "white" : ""}`} />
+
+      <section className={`page-section  ${dark ? " light-content" : ""}`}>
+        {" "}
+        <ServiceHarga />
       </section>
 
       <hr className={`mt-0 mb-0 ${dark ? "white" : ""}`} />

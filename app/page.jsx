@@ -12,6 +12,7 @@ import { menuItems } from "@/data/menu";
 import Hero1 from "@/components/homes/home-1/heros/Hero1";
 import Header1 from "@/components/headers/Header1";
 import HeaderPreview from "@/components/headers/HeaderPreview";
+import FloatingWhatsApp from "@/components/homes/home-1/floatingWa";
 
 export const metadata = {
   title:
@@ -43,6 +44,7 @@ export default function Home() {
           </main>
           <Footer1 />
         </div>{" "}
+        <FloatingWhatsApp/>
       </div>
     </>
   );
