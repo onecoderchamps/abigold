@@ -1,4 +1,4 @@
-import Footer1 from "@/components/footers/Footer1";
+import Footer1 from "@/components/homes/Footer1";
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";

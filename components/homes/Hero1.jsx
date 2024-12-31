@@ -1,16 +1,12 @@
 "use client";
 import AnimatedText from "@/components/common/AnimatedText";
 import { parallaxMouseMovement } from "@/utlis/parallax";
-import Image from "next/image";
-
 import { useEffect, useState } from "react";
-import ModalVideo from "react-modal-video";
 
 export default function Hero1() {
   useEffect(() => {
     parallaxMouseMovement();
   }, []);
-  const [isOpen, setOpen] = useState(false);
 
   return (
     <>
@@ -122,18 +118,7 @@ export default function Hero1() {
             {/* End Stack Images */}
           </div>
         </div>
-        {/* End Home Section Content */}
-        {/* Scroll Down */}
-        
-        {/* End Scroll Down */}
       </div>
-      <ModalVideo
-        channel="youtube"
-        youtube={{ mute: 0, autoplay: 0 }}
-        isOpen={isOpen}
-        videoId="jTea_8Fk5Ns"
-        onClose={() => setOpen(false)}
-      />
     </>
   );
 }

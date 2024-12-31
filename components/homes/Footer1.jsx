@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import FooterSocials from "./FooterSocials";
+// import FooterSocials from "../footers/FooterSocials";
 import Link from "next/link";
 import { footerLinks, navigationLinks } from "@/data/footer";
 
@@ -67,12 +67,12 @@ export default function Footer1({ dark = false }) {
               </div>
               {/* End Footer Widget */}
               {/* Footer Widget */}
-              <div className="col-sm-4 mt-30">
+              {/* <div className="col-sm-4 mt-30">
                 <h3 className="fw-title text-white">Social Media</h3>
                 <ul className="fw-menu clearlist">
                   <FooterSocials />
                 </ul>
-              </div>
+              </div> */}
               {/* End Footer Widget */}
               {/* Footer Widget */}
               <div className="col-sm-4 mt-30">

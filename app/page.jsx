@@ -6,13 +6,12 @@ const ParallaxContainer = dynamic(
     ssr: false, // Disable server-side rendering
   }
 );
-import Home1 from "@/components/homes/home-1";
-import Footer1 from "@/components/footers/Footer1";
+import Home1 from "@/components/homes";
+import Footer1 from "@/components/homes/Footer1";
 import { menuItems } from "@/data/menu";
-import Hero1 from "@/components/homes/home-1/heros/Hero1";
-import Header1 from "@/components/headers/Header1";
-import HeaderPreview from "@/components/headers/HeaderPreview";
-import FloatingWhatsApp from "@/components/homes/home-1/floatingWa";
+import Hero1 from "@/components/homes/Hero1";
+import Header1 from "@/components/headers/Header";
+import FloatingWhatsApp from "@/components/homes/floatingWa";
 
 export const metadata = {
   title:

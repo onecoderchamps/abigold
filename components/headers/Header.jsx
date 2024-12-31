@@ -1,6 +1,5 @@
 "use client";
-import Nav from "./components/Nav";
-import LanguageSelect from "./components/LanguageSelect";
+import Nav from "./Nav";
 import Image from "next/image";
 import { toggleMobileMenu } from "@/utlis/toggleMobileMenu";
 import Link from "next/link";
