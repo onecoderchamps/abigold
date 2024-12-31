@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Image from "next/image";
 // import FooterSocials from "../footers/FooterSocials";
@@ -14,11 +15,15 @@ export default function Footer1({ dark = false }) {
     });
   };
 
+  const phone = localStorage.getItem("phone")
+  const email = localStorage.getItem("email")
+  const address = localStorage.getItem("address")
+
   return (
     <footer
       className={`page-section footer ${
         dark ? "bg-dark-2 light-content" : ""
-      } pb-30`}
+      } pb-30`} 
       style={{ backgroundColor: !dark ? "#B76E79" : undefined }}
     >
       <div className="container">
@@ -42,21 +47,20 @@ export default function Footer1({ dark = false }) {
               />
             </Link>
             <p className="text-white">
-              PT. Aurum Berkah Indonesia <br/>The Plaza Office Tower, Level 7 #7058
-              Jl. MH Thamrin Kav. 28-39 Jakarta 10350 - Indonesia
+              PT. Aurum Berkah Indonesia <br/>{address}
             </p>
             <div className="clearlinks">
-              <a href="mailto:ibthemes21@gmail.com" className="text-white">cs@abigold.co.id</a>
+              <a href="mailto:ibthemes21@gmail.com" className="text-white">{email}</a>
             </div>
             <div className="clearlinks">
-              <a href="tel:+622150955013" className="text-white">+62(0)21 5095 5013</a>
+              <a href="tel:+622150955013" className="text-white">{phone}</a>
             </div>
           </div>
           <div className="col-md-7 offset-md-1 offset-lg-2">
             <div className="row mt-n30">
               {/* Footer Widget */}
               <div className="col-sm-4 mt-30">
-                <h3 className="fw-title text-white">Company</h3>
+                <h3 className="fw-title text-white">Menu</h3>
                 <ul className="fw-menu clearlist local-scroll">
                   {navigationLinks.map((elm, i) => (
                     <li key={i}>

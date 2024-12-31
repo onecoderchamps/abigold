@@ -3,16 +3,48 @@ import { testimonials } from "@/data/testimonials";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
+
+import { useEffect, useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../app/firebaseConfig";
+
+
 export default function Testimonials() {
+
+  const [Data, setData] = useState({
+    title: "",
+    items: [],
+  });
+
+  const fetchData = async () => {
+    try {
+      const docRef = doc(db, "Productions", "Testimonial");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setData(docSnap.data());
+      } else {
+        console.error("No such document!");
+      }
+    } catch (error) {
+      console.error("Error fetching document:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+
   return (
     <div className="container position-relative">
-      <div className="pt-80 pb-80 pt-sm-70 pb-sm-70 px-4 bg-gray-light-1">
+      <div className="pt-80 pb-80 pt-sm-70 pb-sm-70 px-4 " style={{background: "#B76E7920"}}>
         <div className="row">
           <div className="col-lg-8 offset-lg-2 wow fadeInUp">
             <div className="row">
               <div className="col-md-10 offset-md-1 text-center">
                 <h2 className="section-subtitle mb-70 mb-sm-40">
-                KATA MEREKA TENTANG EMAS
+                {Data.title}
                 </h2>
               </div>
             </div>
@@ -34,18 +66,18 @@ export default function Testimonials() {
                 }}
                 className="testimonials-slider-1 owl-carousel owl-theme pb-xs-80 overflow-visible position-static"
               >
-                {testimonials.map((testimonial, index) => (
+                {Data.items.map((testimonial, index) => (
                   <SwiperSlide className="owl-item" key={index}>
                     <div>
                       <blockquote className="mb-0">
                         <div className="blockquote-icon" aria-hidden="true">
                           ”
                         </div>
-                        <p>{testimonial.quote}</p>
+                        <p>{testimonial.desc}</p>
                         <div className="section-line mt-40" />
                         <footer className="ts1-author mt-20 clearfix">
                           <div className="ts1-author-img float-start">
-                            <Image
+                            <img
                               className="rounded-circle"
                               width={44}
                               height={44}
@@ -54,8 +86,8 @@ export default function Testimonials() {
                             />
                           </div>
                           <div className="overflow-hidden">
-                            {testimonial.author}
-                            <div className="small">{testimonial.role}</div>
+                            {testimonial.title}
+                            <div className="small">{testimonial.subtitle}</div>
                           </div>
                         </footer>
                       </blockquote>

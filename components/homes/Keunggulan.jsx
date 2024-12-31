@@ -1,8 +1,39 @@
+"use client";
+
 import { featureItems2 } from "@/data/features";
 import Image from "next/image";
 import React from "react";
+import { useEffect, useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../app/firebaseConfig";
 
-export default function Promo() {
+export default function Keunggulan() {
+  const [Data, setData] = useState({
+    title: "",
+    image1: "",
+    image2: "",
+    items: [],
+  });
+
+  const fetchData = async () => {
+    try {
+      const docRef = doc(db, "Productions", "Keunggulan");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setData(docSnap.data());
+      } else {
+        console.error("No such document!");
+      }
+    } catch (error) {
+      console.error("Error fetching document:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="container position-relative">
       {/* Decorative Dots */}
@@ -30,34 +61,25 @@ export default function Promo() {
           >
             <div className="row">
               <div className="col-lg-10">
-                <h2 className="section-title mb-60 mb-sm-30">
-                  Mengapa Memilih ABI ?
-                </h2>
+                <h2 className="section-title mb-60 mb-sm-30">{Data.title}</h2>
               </div>
             </div>
             {/* Features Grid */}
             <div className="row alt-features-grid">
               {/* Features Item */}
-              {featureItems2.map((item, index) => (
-                <div key={index} className={item.className}>
+              {Data.items.map((item, index) => (
+                <div key={index} className="col-lg-6">
                   <div className="alt-features-item">
-                    <div className="alt-features-icon">
-                      <svg
+                    {/* <div className="alt-features-icon">
+                      <img
                         width={24}
                         height={24}
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        focusable="false"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                      >
-                        <path d={item.path} />
-                      </svg>
-                    </div>
+                        src={item.image}
+                        alt="Image Items"
+                      />
+                    </div> */}
                     <h3 className="alt-features-title">{item.title}</h3>
-                    <div className="alt-features-descr">{item.description}</div>
+                    <div className="alt-features-descr">{item.desc}</div>
                   </div>
                 </div>
               ))}
@@ -74,7 +96,7 @@ export default function Promo() {
               <img
                 width={633}
                 height={821}
-                src="https://demo.webdeveloperjogja.com/goldabi/images/keunggulan_layanan/proses-pembayaran-buyback-real-time-27.jpeg.webp"
+                src={Data.image2}
                 alt="Image Description"
                 className="wow scaleOutIn"
                 data-wow-duration="1.2s"
@@ -91,7 +113,7 @@ export default function Promo() {
                 <img
                   width={386}
                   height={500}
-                  src="https://demo.webdeveloperjogja.com/goldabi/images/keunggulan_layanan/pengendalian-mutu-quality-control-cetakan-emas-74.jpeg.webp"
+                  src={Data.image1}
                   alt="Image Description"
                   className="wow scaleOutIn"
                   data-wow-duration="1.2s"

@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -13,6 +12,9 @@ import {
   Legend,
 } from "chart.js";
 import { Montserrat } from "next/font/google";
+import { useEffect, useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../app/firebaseConfig";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -137,15 +139,49 @@ const GoldPriceChart = () => {
     maintainAspectRatio: false,
   };
 
+  const [Data, setData] = useState({
+    title: "",
+    kenaikan: 0,
+    hargaTerakhir: 0,
+    hargaSebelumnya: 0,
+    currentDate: 0,
+  });
+
+  const fetchData = async () => {
+    try {
+      const docRef = doc(db, "Productions", "GoldTraffic");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setData(docSnap.data());
+      } else {
+        console.error("No such document!");
+      }
+    } catch (error) {
+      console.error("Error fetching document:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const formatNumber = (number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
+
   return (
     <div className={montserrat.className}>
+      <h4 className="mb-50 mb-sm-40 text-center fw-bold" style={{color: "#B8860B"}}>
+            {Data.title}
+          </h4>
       <div className="container">
         <div className="row g-2">
           {/* Grafik di sebelah kiri */}
           <div className="col-lg-8">
             <div className="bg-white p-4 rounded shadow">
               <div className="mb-4 fs-5 fw-bold text-dark">
-                Harga Terbaru: IDR 970.000
+                Harga Terbaru: IDR {formatNumber(Data.hargaTerakhir)} /gram
               </div>
               <div className="w-100 mt-4" style={{ height: "100%" }}>
                 <Line data={chartData} options={chartOptions} />
@@ -155,22 +191,22 @@ const GoldPriceChart = () => {
 
           {/* Data harga di sebelah kanan */}
           <div className="col-lg-4">
-            <div className="p-4 rounded shadow">
+            <div className="p-4 rounded">
               <div>
-                <span className="fw-semibold">Harga Terakhir</span>
+                <span className="fw-semibold" style={{color: "#B8860B"}}>Harga Terakhir</span>
                 <br />
-                <span className="fw-normal text-muted">
-                  Rp1.200.000,00/gram
+                <span className="fw-bold" style={{color: "#B8860B"}}>
+                IDR  {formatNumber(Data.hargaSebelumnya)} /gram
                 </span>
                 <br />
-                <span className="fw-semibold mt-3 d-block">Kenaikan</span>
-                <span className="fw-normal text-muted ">Rp10.000,00/gram</span>
+                <span className="fw-semibold mt-3 d-block" style={{color: "#B8860B"}}>Kenaikan</span>
+                <span className="fw-bold " style={{color: "#B8860B"}}>IDR {formatNumber(Data.hargaTerakhir - Data.hargaSebelumnya)} / gram</span>
                 <br />
-                <span className="fw-semibold mt-3 d-block">
+                <span className="fw-semibold mt-3 d-block" style={{color: "#B8860B"}}>
                   Perubahan Terakhir
                 </span>
-                <span className="fw-normal text-muted">
-                  15/08/2017 <br /> 09.00 WIB
+                <span className="fw-bold" style={{color: "#B8860B"}}>
+                  {Data.currentDate}
                 </span>
               </div>
             </div>

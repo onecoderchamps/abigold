@@ -7,9 +7,9 @@ import Contact from "./Contact";
 import Faq from "./Faq";
 import Features from "./Features";
 import NewsLetter from "./NewsLetter";
-import Promo from "./Promo";
+import Keunggulan from "./Keunggulan";
 import Service from "./Service";
-import Team from "./Team";
+import Product from "./Product";
 import Testimonials from "./Testimonials";
 import Testimonials2 from "./Teatimonials2";
 import Link from "next/link";
@@ -17,6 +17,7 @@ import Brands2 from "./Brands2";
 import dynamic from "next/dynamic";
 import GoldPriceChart from "./Chart";
 import ServiceHarga from "./ServiceHarga";
+import Pemesanan from "./Pemesanan";
 const ParallaxContainer = dynamic(
   () => import("@/components/common/ParallaxContainer"),
   {
@@ -29,7 +30,7 @@ export default function Home1({ onePage = false, dark = false }) {
       <section
         className={`page-section  ${dark ? "bg-dark-1 light-content" : ""}`}
       >
-        <Promo />{" "}
+        <Keunggulan />{" "}
       </section>
       <section
         className={`page-section scrollSpysection ${
@@ -38,7 +39,7 @@ export default function Home1({ onePage = false, dark = false }) {
         style={{ backgroundColor: !dark ? "#B76E7920" : undefined }}
         id="produk"
       >
-        <Team />
+        <Product />
       </section>
       <section
         className={`page-section  scrollSpysection  ${
@@ -51,13 +52,15 @@ export default function Home1({ onePage = false, dark = false }) {
       </section>
 
       <ParallaxContainer
-        className="page-section bg-dark-1 bg-dark-alpha-90 parallax-5 light-content"
-        
+        className="page-section parallax-5 light-content"
+        style={{
+          background: "#B76E7920", // Gradien ungu
+          borderRadius: "12px", // Membuat rounded
+          color: "#fff", // Teks putih untuk kontras
+          display: "inline-block", // Agar ukurannya sesuai konten
+        }}
       >
         <div className="container position-relative">
-          <h4 className="mb-50 mb-sm-40 text-center">
-            Tren Kenaikan Harga Emas
-          </h4>
           <GoldPriceChart />
         </div>
       </ParallaxContainer>
@@ -69,106 +72,22 @@ export default function Home1({ onePage = false, dark = false }) {
         }`}
         id="pemesanan"
       >
-        <div className="container position-relative">
-          <div className="row">
-            {/* Images */}
-            <div className="col-lg-7 d-flex align-items-start mb-md-60 mb-xs-30">
-              <div className="call-action-2-images">
-                <div
-                  className="call-action-2-image-1"
-                  data-rellax-y=""
-                  data-rellax-speed="0.5"
-                  data-rellax-percentage="0.7"
-                >
-                  <img
-                    width={386}
-                    height={400}
-                    src="https://ec-cstatic.akulaku.net/web-site/_nuxt/img/h5_au_cu_banner.98a5986.png"
-                    alt="Image Description"
-                    className="wow scaleOutIn"
-                    data-wow-duration="1.2s"
-                    data-wow-offset={255}
-                  />
-                </div>
-                <div className="call-action-2-image-2">
-                  <img
-                    width={810}
-                    height={512}
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUH0Quamgn74pqh6vB-JhOqh8B9sInohf0FA&s"
-                    alt="Image Description"
-                    className="wow scaleOutIn"
-                    data-wow-duration="1.2s"
-                    data-wow-offset={134}
-                  />
-                </div>
-                <div
-                  className="call-action-2-image-3"
-                  data-rellax-y=""
-                  data-rellax-speed="-0.5"
-                  data-rellax-percentage="0.5"
-                >
-                  <img
-                    width={386}
-                    height={500}
-                    src="https://biteship.com/blog/wp-content/uploads/2023/05/peraturan-cod.jpg"
-                    alt="Image Description"
-                    className="wow scaleOutIn"
-                    data-wow-duration="1.2s"
-                    data-wow-offset={0}
-                  />
-                </div>
-              </div>
-            </div>
-            {/* End Images */}
-            {/* Text */}
-            <div className="col-lg-5 d-flex align-items-center">
-              <div
-                className="wow fadeInUp"
-                data-wow-duration="1.2s"
-                data-wow-offset={255}
-              >
-                <h4 className=" mb-50 mb-sm-40">
-                  Bagaimana cara memesan ABI gold?
-                </h4>
-                <Faq />
-                <div className="local-scroll">
-                  {onePage ? (
-                    <a
-                      href="#contact"
-                      className="btn btn-mod btn-large btn-round btn-hover-anim"
-                    >
-                      <span>Pesan Sekarang</span>
-                    </a>
-                  ) : (
-                    <Link
-                      href={`/main-pages-contact-1${dark ? "-dark" : ""}`}
-                      className="btn btn-mod btn-large btn-round btn-hover-anim"
-                    >
-                      <span>Pesan Sekarang</span>
-                    </Link>
-                  )}
-                </div>
-              </div>
-            </div>
-            {/* End Text */}
-          </div>
-        </div>
+        <Pemesanan />
       </section>
       <hr className={`mt-0 mb-0 ${dark ? "white" : ""}`} />
 
-      <section className={`page-section  ${dark ? " light-content" : ""}`}>
-        {" "}
+      <section className={`page-section  scrollSpysection  ${
+          dark ? "bg-dark-1 light-content" : ""
+        }`} id="hargaterkini">
         <ServiceHarga />
       </section>
 
-      <hr className={`mt-0 mb-0 ${dark ? "white" : ""}`} />
       <section className={`page-section  ${dark ? " light-content" : ""}`}>
         {dark ? <Brands2 /> : <Brands />}
       </section>
+      <hr className={`mt-0 mb-0 ${dark ? "white" : ""}`} />
 
-      <section
-        className={`page-section pt-0 pb-0  ${dark ? "light-content" : ""}`}
-      >
+      <section className={`page-section ${dark ? "light-content" : ""}`}>
         {" "}
         {dark ? <Testimonials2 /> : <Testimonials />}
       </section>
@@ -241,7 +160,7 @@ export default function Home1({ onePage = false, dark = false }) {
               </div>
               {onePage ? (
                 <a
-                  href="#team"
+                  href="#Product"
                   className="link-hover-anim underline align-middle"
                   data-link-animate="y"
                 >

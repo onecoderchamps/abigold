@@ -1,10 +1,37 @@
 "use client";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { teamMembers } from "@/data/team";
-import Image from "next/image";
+import { useEffect, useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../app/firebaseConfig";
 
-export default function Team() {
+export default function Product() {
+  const [Data, setData] = useState({
+    title: "",
+    desc: "",
+    items: [],
+  });
+
+  const fetchData = async () => {
+    try {
+      const docRef = doc(db, "Productions", "Product");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setData(docSnap.data());
+      } else {
+        console.error("No such document!");
+      }
+    } catch (error) {
+      console.error("Error fetching document:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="container position-relative">
       <div className="row">
@@ -15,11 +42,11 @@ export default function Team() {
               ”
             </div>
             <p>
-            Produk ABI Gold
+            {Data.title}
             </p>
             <footer>
               <div className="section-line mb-10" />
-              Piliihan emas terbaik untuk investasi anda. Kami menyediakan solusi investasi yang mudah diakses, terjangkau, dan menguntungkan bagi setiap lapisan masyarakat, dengan pelayanan yang cepat, ramah, dan profesional.
+              {Data.desc}
               {/* <div className="small">Developer, Co-founder</div> */}
             </footer>
           </blockquote>
@@ -53,16 +80,16 @@ export default function Team() {
               }}
             >
               {/* Team item */}
-              {teamMembers.map((member, index) => (
+              {Data.items.map((member, index) => (
                 <SwiperSlide className="owl-item" key={index}>
                   <div className="team-carousel-item">
                     <div className="team-item">
                       <div className="team-item-image">
                         <img
-                          width={400}
+                          width={300}
                           height={800}
                           src={member.image}
-                          className="wow scaleOutIn"
+                          // className="wow scaleOutIn"
                           alt="Image Description"
                         />
                         <div className="team-item-detail">
@@ -71,7 +98,7 @@ export default function Team() {
                         </div>
                       </div>
                       <div className="team-item-descr">
-                        <div className="team-item-name">{member.name}</div>
+                        <div className="team-item-name">{member.title}</div>
                       </div>
                     </div>
                   </div>

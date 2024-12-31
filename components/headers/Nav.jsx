@@ -28,46 +28,60 @@ export default function OnePageNav({ links, animateY = false }) {
   return (
     <>
       {links[0].href?.includes("/") &&
-        links.map((link, index) => (
-          <li key={index}>
-            <Link
-              className={
-                pathname.split("/")[1] == link.href.split("/")[1]
-                  ? "active"
-                  : ""
-              }
-              href={link.href}
-            >
-              {animateY ? (
-                <span className="btn-animate-y">
-                  <span className="btn-animate-y-1">{link.text}</span>
-                  <span className="btn-animate-y-2" aria-hidden="true">
-                    {link.text}
+        links.map((link, index) => {
+          const isActive = pathname.split("/")[1] == link.href.split("/")[1];
+          return (
+            <li key={index}>
+              <Link
+                href={link.href}
+                style={{
+                  color: "white", // Teks berwarna putih
+                  fontWeight: isActive ? "bold" : "normal", // Teks tebal saat aktif
+                  textDecoration: "none" // Menghapus garis bawah
+                }}
+              >
+                {animateY ? (
+                  <span className="btn-animate-y">
+                    <span className="btn-animate-y-1">{link.text}</span>
+                    <span className="btn-animate-y-2" aria-hidden="true">
+                      {link.text}
+                    </span>
                   </span>
-                </span>
-              ) : (
-                link.text
-              )}
-            </Link>
-          </li>
-        ))}
+                ) : (
+                  link.text
+                )}
+              </Link>
+            </li>
+          );
+        })}
       {!links[0].href?.includes("/") &&
-        links.map((link, index) => (
-          <li className="scrollspy-link" key={index}>
-            <a onClick={() => closeMobileMenu()} className="" href={link.href}>
-              {animateY ? (
-                <span className="btn-animate-y">
-                  <span className="btn-animate-y-1">{link.text}</span>
-                  <span className="btn-animate-y-2" aria-hidden="true">
-                    {link.text}
+        links.map((link, index) => {
+          const isActive = pathname.split("/")[1] == link.href.split("/")[1];
+          return (
+            <li className="scrollspy-link" key={index}>
+              <a
+                onClick={() => closeMobileMenu()}
+                href={link.href}
+                style={{
+                  color: "white", // Teks berwarna putih
+                  fontWeight: isActive ? "bold" : "normal", // Teks tebal saat aktif
+                  textDecoration: "none" // Menghapus garis bawah
+                }}
+              >
+                {animateY ? (
+                  <span className="btn-animate-y">
+                    <span className="btn-animate-y-1">{link.text}</span>
+                    <span className="btn-animate-y-2" aria-hidden="true">
+                      {link.text}
+                    </span>
                   </span>
-                </span>
-              ) : (
-                link.text
-              )}
-            </a>
-          </li>
-        ))}
+                ) : (
+                  link.text
+                )}
+              </a>
+            </li>
+          );
+        })}
     </>
   );
 }

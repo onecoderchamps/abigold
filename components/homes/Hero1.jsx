@@ -2,10 +2,38 @@
 import AnimatedText from "@/components/common/AnimatedText";
 import { parallaxMouseMovement } from "@/utlis/parallax";
 import { useEffect, useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../app/firebaseConfig";
 
 export default function Hero1() {
+
+  const [Data, setData] = useState({
+    title: "",
+    subtitle: "",
+    desc: "",
+    image1: "",
+    image2:"",
+    image3:""
+  });
+
+  const fetchData = async () => {
+    try {
+      const docRef = doc(db, "Productions", "Banner");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setData(docSnap.data());
+      } else {
+        console.error("No such document!");
+      }
+    } catch (error) {
+      console.error("Error fetching document:", error);
+    }
+  };
+
   useEffect(() => {
     parallaxMouseMovement();
+    fetchData();
   }, []);
 
   return (
@@ -21,11 +49,11 @@ export default function Hero1() {
                   className="section-caption mb-30 mb-xs-10 wow fadeInUp"
                   data-wow-duration="1.2s"
                 >
-                  PT Aurum Berkah Indonesia
+                  {Data.title}
                 </h2>
                 <h1 className="hs-title-1 mb-30">
                   <AnimatedText
-                    text={"Investasi Terpercaya dan Menguntungkan"}
+                    text={Data.subtitle}
                   />
                 </h1>
 
@@ -34,8 +62,7 @@ export default function Hero1() {
                   data-wow-delay="0.6s"
                   data-wow-duration="1.2s"
                 >
-                  Dapatkan emas berkualitas dengan layanan terbaik dan jaminan
-                  harga kompetitif hanya di ABI Gold
+                  {Data.desc}
                 </p>
                 <div
                   className="local-scroll mt-n10 wow fadeInUp wch-unset"
@@ -50,7 +77,7 @@ export default function Hero1() {
                     <span>Pesan Sekarang</span>
                   </a>
                   <a
-                    href="#about"
+                    href="#hargaterkini"
                     className="link-hover-anim align-middle lightbox mfp-iframe mt-10"
                   >
                     Cek Harga Emas Terkini
@@ -72,7 +99,7 @@ export default function Hero1() {
                     data-wow-duration="1.75s"
                   >
                     <img
-                      src="https://demo.webdeveloperjogja.com/goldabi/images/produk/emas-batangan-1-gram-32.jpeg.webp"
+                      src={Data.image1}
                       alt="Image Description"
                       width={600}
                       height={800}
@@ -91,7 +118,7 @@ export default function Hero1() {
                     <img
                       width={600}
                       height={800}
-                      src="https://demo.webdeveloperjogja.com/goldabi/images/produk/1-dinar-425-gram-45.jpeg.webp"
+                      src={Data.image2}
                       alt="Image Description"
                     />
                   </div>
@@ -108,7 +135,7 @@ export default function Hero1() {
                     <img
                       width={600}
                       height={800}
-                      src="https://demo.webdeveloperjogja.com/goldabi/images/produk/1-dinar-425-gram-45.jpeg.webp"
+                      src={Data.image3}
                       alt="Image Description"
                     />
                   </div>

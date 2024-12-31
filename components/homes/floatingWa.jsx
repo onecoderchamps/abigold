@@ -1,8 +1,10 @@
+"use client";
+
 import { ChartArea, MessageCircle } from 'lucide-react';
 import React from 'react';
 
 const FloatingWhatsApp = () => {
-  const phoneNumber = '6281999717666'; // Ganti dengan nomor WhatsApp Anda
+  const phoneNumber = localStorage.getItem("phoneWa")
   const message = 'Halo, saya ingin bertanya tentang emas ABI'; // Pesan default
 
   const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

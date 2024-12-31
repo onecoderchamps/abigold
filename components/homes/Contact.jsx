@@ -2,17 +2,54 @@
 import AnimatedText from "@/components/common/AnimatedText";
 import React from "react";
 
+import { useEffect, useState } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../app/firebaseConfig";
+
 export default function Contact() {
+
+  const [Data, setData] = useState({
+    title: "",
+    subtitle:"",
+    phoneWa:"",
+    phone:"",
+    email:"",
+    address:""
+  });
+
+  const fetchData = async () => {
+    try {
+      const docRef = doc(db, "Productions", "Contact");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setData(docSnap.data());
+        localStorage.setItem("phone",docSnap.data().phone)
+        localStorage.setItem("phoneWa",docSnap.data().phoneWa)
+        localStorage.setItem("email",docSnap.data().email)
+        localStorage.setItem("address",docSnap.data().address)
+      } else {
+        console.error("No such document!");
+      }
+    } catch (error) {
+      console.error("Error fetching document:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="container position-relative">
       <div className="row">
         <div className="col-lg-6">
           <div className="row mb-50">
             <div className="col-lg-10">
-              <h2 className="section-caption mb-xs-10">Bergabung Sebagai Agen</h2>
+              <h2 className="section-caption mb-xs-10">{Data.title}</h2>
               <h3 className="section-title mb-0">
                 <span className="wow charsAnimIn" data-splitting="chars">
-                  <AnimatedText text="jadilah mitra terpercaya dalam perdagangan emas." />
+                  <AnimatedText text={Data.subtitle} />
                 </span>
               </h3>
             </div>
@@ -55,11 +92,11 @@ export default function Contact() {
                 <h4 className="alt-features-title">Hubungi Kami</h4>
                 <div className="alt-features-descr clearlinks">
                   <div>
-                    <a href="mailto:ibthemes21@gmail.com">
-                      cs@abigold.com
+                    <a href={`mailto:${Data.email}`}>
+                      {Data.email}
                     </a>
                   </div>
-                  <div>+62(0)21 5095 5013</div>
+                  <div>{Data.phone}</div>
                 </div>
               </div>
             </div>
@@ -86,7 +123,7 @@ export default function Contact() {
                 </div>
                 <h4 className="alt-features-title">Alamat Kami</h4>
                 <div className="alt-features-descr">
-                The Plaza Office Tower, Level 7 #7058 Jl. MH Thamrin Kav. 28-39 Jakarta 10350 - Indonesia
+                {Data.address}
                 </div>
               </div>
             </div>
