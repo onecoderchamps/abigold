@@ -16,6 +16,8 @@ export default function Hero1() {
     image3:""
   });
 
+  const [phoneNumber, setphoneNumber] = useState("");
+
   const fetchData = async () => {
     try {
       const docRef = doc(db, "Productions", "Banner");
@@ -34,7 +36,14 @@ export default function Hero1() {
   useEffect(() => {
     parallaxMouseMovement();
     fetchData();
+    setphoneNumber(localStorage.getItem("phoneWa") || "");
   }, []);
+
+  const message = "Halo, saya ingin bertanya tentang emas ABI";
+
+  const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    message
+  )}`;
 
   return (
     <>
@@ -71,8 +80,13 @@ export default function Hero1() {
                   data-wow-offset={0}
                 >
                   <a
-                    href="#about"
+                    href={waUrl}
                     className="btn btn-mod btn-large btn-round btn-hover-anim align-middle me-2 me-sm-5 mt-10"
+                    style={{
+                      backgroundColor: "#B76E79",  // Rose Gold
+                      color: "#fff",                // White text
+                      border: "2px solid #B76E79",  // Rose Gold border
+                    }}
                   >
                     <span>Pesan Sekarang</span>
                   </a>

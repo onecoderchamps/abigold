@@ -214,6 +214,11 @@ export default function Contact() {
                     className="submit_btn btn btn-mod btn-large btn-round btn-hover-anim"
                     id="submit_btn"
                     aria-controls="result"
+                    style={{
+                      backgroundColor: "#B76E79",  // Rose Gold
+                      color: "#fff",                // White text
+                      border: "2px solid #B76E79",  // Rose Gold border
+                    }}
                   >
                     <span>Daftar Sekarang</span>
                   </button>

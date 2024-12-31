@@ -1,12 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-// import FooterSocials from "../footers/FooterSocials";
 import Link from "next/link";
 import { footerLinks, navigationLinks } from "@/data/footer";
 
 export default function Footer1({ dark = false }) {
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+
+  useEffect(() => {
+    // Access localStorage only in the browser
+    if (typeof window !== "undefined") {
+      setPhone(localStorage.getItem("phone") || "");
+      setEmail(localStorage.getItem("email") || "");
+      setAddress(localStorage.getItem("address") || "");
+    }
+  }, []);
+
   const scrollToTop = (event) => {
     event.preventDefault();
     window.scrollTo({
@@ -15,19 +27,16 @@ export default function Footer1({ dark = false }) {
     });
   };
 
-  const phone = localStorage.getItem("phone")
-  const email = localStorage.getItem("email")
-  const address = localStorage.getItem("address")
-
   return (
     <footer
-      className={`page-section footer ${
-        dark ? "bg-dark-2 light-content" : ""
-      } pb-30`} 
-      style={{ backgroundColor: !dark ? "#B76E79" : undefined }}
+      className={`page-section footer ${dark ? "bg-dark-2 light-content" : ""} pb-30`}
+      style={{
+        backgroundColor: !dark ? "#B76E79" : undefined,
+      }}
     >
       <div className="container">
         <div className="row pb-120 pb-sm-80 pb-xs-50">
+          {/* Footer left section */}
           <div className="col-md-4 col-lg-3 text-gray mb-sm-50">
             <Link href={"/"} className="mb-30">
               <Image
@@ -37,7 +46,6 @@ export default function Footer1({ dark = false }) {
                 className="light-mode-logo"
                 alt="Your Company Logo"
               />
-
               <Image
                 src="/assets/images/logo-white.svg"
                 width={105}
@@ -47,53 +55,56 @@ export default function Footer1({ dark = false }) {
               />
             </Link>
             <p className="text-white">
-              PT. Aurum Berkah Indonesia <br/>{address}
+              PT. Aurum Berkah Indonesia <br />
+              {address}
             </p>
             <div className="clearlinks">
-              <a href="mailto:ibthemes21@gmail.com" className="text-white">{email}</a>
+              <a href={`mailto:${email}`} className="text-white">
+                {email}
+              </a>
             </div>
             <div className="clearlinks">
-              <a href="tel:+622150955013" className="text-white">{phone}</a>
+              <a href={`tel:${phone}`} className="text-white">
+                {phone}
+              </a>
             </div>
           </div>
+
+          {/* Footer right section */}
           <div className="col-md-7 offset-md-1 offset-lg-2">
             <div className="row mt-n30">
-              {/* Footer Widget */}
+              {/* Footer Menu Widget */}
               <div className="col-sm-4 mt-30">
                 <h3 className="fw-title text-white">Menu</h3>
                 <ul className="fw-menu clearlist local-scroll">
                   {navigationLinks.map((elm, i) => (
                     <li key={i}>
-                      <a href={elm.href} className="text-white">{elm.text}</a>
+                      <a href={elm.href} className="text-white">
+                        {elm.text}
+                      </a>
                     </li>
                   ))}
                 </ul>
               </div>
-              {/* End Footer Widget */}
-              {/* Footer Widget */}
-              {/* <div className="col-sm-4 mt-30">
-                <h3 className="fw-title text-white">Social Media</h3>
-                <ul className="fw-menu clearlist">
-                  <FooterSocials />
-                </ul>
-              </div> */}
-              {/* End Footer Widget */}
-              {/* Footer Widget */}
+
+              {/* Legal & Press Widget */}
               <div className="col-sm-4 mt-30">
                 <h3 className="fw-title text-white">Legal &amp; Press</h3>
                 <ul className="fw-menu clearlist">
                   {footerLinks.map((elm, i) => (
                     <li key={i}>
-                      <a href={elm.path} className="text-white">{elm.name}</a>
+                      <a href={elm.path} className="text-white">
+                        {elm.name}
+                      </a>
                     </li>
                   ))}
                 </ul>
               </div>
-              {/* End Footer Widget */}
             </div>
           </div>
         </div>
-        {/* Footer Text */}
+
+        {/* Footer Bottom Section */}
         <div className="row text-gray">
           <div className="col-md-4 col-lg-3">
             <b></b>
@@ -107,10 +118,8 @@ export default function Footer1({ dark = false }) {
                 <span className="visually-hidden">Scroll to top</span>
               </a>
             </div>
-            {/* End Back to Top Link */}
           </div>
         </div>
-        {/* End Footer Text */}
       </div>
     </footer>
   );

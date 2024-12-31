@@ -17,6 +17,8 @@ export default function Pemesanan() {
     items: [],
   });
 
+  const [phoneNumber, setphoneNumber] = useState("");
+
   const fetchData = async () => {
     try {
       const docRef = doc(db, "Productions", "Pemesanan");
@@ -34,7 +36,14 @@ export default function Pemesanan() {
 
   useEffect(() => {
     fetchData();
+    setphoneNumber(localStorage.getItem("phoneWa") || "");
   }, []);
+
+  const message = "Halo, saya ingin bertanya tentang emas ABI";
+
+  const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    message
+  )}`;
 
   return (
     <div className="container position-relative">
@@ -101,8 +110,12 @@ export default function Pemesanan() {
             <Faqs faqs={Data.items}/>
             <div className="local-scroll">
               <a
-                href="#contact"
-                className="btn btn-mod btn-large btn-round btn-hover-anim"
+                href={waUrl}
+                className="btn btn-mod btn-large btn-round btn-hover-anim"style={{
+                  backgroundColor: "#B76E79",  // Rose Gold
+                  color: "#fff",                // White text
+                  border: "2px solid #B76E79",  // Rose Gold border
+                }}
               >
                 <span>Pesan Sekarang</span>
               </a>

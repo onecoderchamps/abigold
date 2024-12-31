@@ -1,13 +1,24 @@
 "use client";
 
-import { ChartArea, MessageCircle } from 'lucide-react';
-import React from 'react';
+import React, { useEffect, useState } from "react";
+
+import { ChartArea, MessageCircle } from "lucide-react";
 
 const FloatingWhatsApp = () => {
-  const phoneNumber = localStorage.getItem("phoneWa")
-  const message = 'Halo, saya ingin bertanya tentang emas ABI'; // Pesan default
+  const [phoneNumber, setphoneNumber] = useState("");
 
-  const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  useEffect(() => {
+    // Access localStorage only in the browser
+    if (typeof window !== "undefined") {
+      setphoneNumber(localStorage.getItem("phoneWa") || "");
+    }
+  }, []);
+
+  const message = "Halo, saya ingin bertanya tentang emas ABI"; // Pesan default
+
+  const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    message
+  )}`;
 
   return (
     <a
@@ -15,7 +26,7 @@ const FloatingWhatsApp = () => {
       target="_blank"
       rel="noopener noreferrer"
       className="position-fixed bg-success text-white p-3 mb-4 me-4 rounded-circle shadow-lg d-flex align-items-center justify-content-center"
-  style={{ bottom: 0, right: 0 }}
+      style={{ bottom: 0, right: 0 }}
     >
       <MessageCircle />
     </a>
