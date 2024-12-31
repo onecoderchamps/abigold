@@ -3,7 +3,17 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { footerLinks, navigationLinks } from "@/data/footer";
+import { footerLinks } from "@/data/footer";
+
+export const navigationLinks = [
+  { href: "/", text: "Beranda", className: "active" },
+  { href: "#produk", text: "Produk" },
+  { href: "#services", text: "Keunggulan" },
+  { href: "#pemesanan", text: "Cara Pemesanan" },
+  { href: "#contact", text: "Mitra ABI" },
+  { href: "/authentification", text: "Authentikasi Emas" },
+];
+
 
 export default function Footer1({ dark = false }) {
   const [phone, setPhone] = useState("");
@@ -100,23 +110,6 @@ export default function Footer1({ dark = false }) {
                   ))}
                 </ul>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer Bottom Section */}
-        <div className="row text-gray">
-          <div className="col-md-4 col-lg-3">
-            <b></b>
-          </div>
-          <div className="col-md-7 offset-md-1 offset-lg-2 clearfix text-white">
-            <b>© abigold.co.id {new Date().getFullYear()}.</b>
-            {/* Back to Top Link */}
-            <div className="local-scroll float-end mt-n20 mt-sm-10">
-              <a href="#top" className="link-to-top" onClick={scrollToTop}>
-                <i className="mi-arrow-up size-24" />
-                <span className="visually-hidden">Scroll to top</span>
-              </a>
             </div>
           </div>
         </div>

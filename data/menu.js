@@ -66,7 +66,7 @@ export const modernMultipageDark = [
 ];
 
 export const modernOnepage = [
-  { href: "#home", text: "Home", className: "active", dataBtnAnimate: "y" },
+  { href: "/", text: "Home", className: "active", dataBtnAnimate: "y" },
   { href: "#about", text: "About", dataBtnAnimate: "y" },
   { href: "#services", text: "Services", dataBtnAnimate: "y" },
   { href: "#portfolio", text: "Portfolio", dataBtnAnimate: "y" },
@@ -237,12 +237,12 @@ export const mainDemoOnepage = [
 ];
 
 export const menuItems = [
-  { href: "#home", text: "Beranda", className: "active" },
+  { href: "/", text: "Beranda", className: "active" },
   { href: "#produk", text: "Produk" },
   { href: "#services", text: "Keunggulan" },
   { href: "#pemesanan", text: "Cara Pemesanan" },
   { href: "#contact", text: "Mitra ABI" },
-  { href: "#contact", text: "Authentikasi Emas" },
+  { href: "/authentification", text: "Authentikasi Emas" },
 ];
 
 export const menuItems2 = [
