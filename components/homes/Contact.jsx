@@ -1,21 +1,76 @@
 "use client";
 import AnimatedText from "@/components/common/AnimatedText";
 import React from "react";
+import bcrypt from 'bcryptjs';
 
 import { useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import {
+  collection, 
+  doc, 
+  query, 
+  where, 
+  getDocs, 
+  addDoc,
+  getDoc
+} from "firebase/firestore";
 import { db } from "../../app/firebaseConfig";
 
 export default function Contact() {
-
   const [Data, setData] = useState({
     title: "",
-    subtitle:"",
-    phoneWa:"",
-    phone:"",
-    email:"",
-    address:""
+    subtitle: "",
+    phoneWa: "",
+    phone: "",
+    email: "",
+    address: "",
   });
+
+  const hashedPassword = bcrypt.hash("abigoldjaya", 10);
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: hashedPassword,
+    name: "",
+    address: "",
+    phone: "",
+    latitude: 0,
+    longitude: 0,
+    isActive: true,
+    isVerify: false,
+    role: "agentRole",
+  });
+  const [message, setMessage] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    try {
+      const agentDocRef = doc(collection(db, "Productions"), "Agent");
+      const listAgentRef = collection(agentDocRef, "listAgent");
+  
+      // Query to check if email already exists
+      const emailQuery = query(listAgentRef, where("email", "==", formData.email));
+      const querySnapshot = await getDocs(emailQuery);
+  
+      if (!querySnapshot.empty) {
+        setMessage("Email sudah terdaftar. Harap gunakan email berbeda.");
+        return; // Exit if email exists
+      }
+  
+      // Add new document if email does not exist
+      await addDoc(listAgentRef, formData);
+      setMessage("Pendaftaran Berhasil, silahkan hubungi admin melalui whatsapp untuk aktifasi akun");
+    } catch (error) {
+      console.error("Error saving data: ", error);
+      setMessage("Failed to save data. Please try again.");
+    }
+  };
+  
 
   const fetchData = async () => {
     try {
@@ -24,10 +79,10 @@ export default function Contact() {
 
       if (docSnap.exists()) {
         setData(docSnap.data());
-        localStorage.setItem("phone",docSnap.data().phone)
-        localStorage.setItem("phoneWa",docSnap.data().phoneWa)
-        localStorage.setItem("email",docSnap.data().email)
-        localStorage.setItem("address",docSnap.data().address)
+        localStorage.setItem("phone", docSnap.data().phone);
+        localStorage.setItem("phoneWa", docSnap.data().phoneWa);
+        localStorage.setItem("email", docSnap.data().email);
+        localStorage.setItem("address", docSnap.data().address);
       } else {
         console.error("No such document!");
       }
@@ -92,9 +147,7 @@ export default function Contact() {
                 <h4 className="alt-features-title">Hubungi Kami</h4>
                 <div className="alt-features-descr clearlinks">
                   <div>
-                    <a href={`mailto:${Data.email}`}>
-                      {Data.email}
-                    </a>
+                    <a href={`mailto:${Data.email}`}>{Data.email}</a>
                   </div>
                   <div>{Data.phone}</div>
                 </div>
@@ -122,9 +175,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <h4 className="alt-features-title">Alamat Kami</h4>
-                <div className="alt-features-descr">
-                {Data.address}
-                </div>
+                <div className="alt-features-descr">{Data.address}</div>
               </div>
             </div>
             {/* End Contact Item */}
@@ -145,14 +196,14 @@ export default function Contact() {
                 <div className="form-group">
                   <label htmlFor="name">Nama Lengkap</label>
                   <input
+                    className="input-lg round form-control"
                     type="text"
                     name="name"
                     id="name"
-                    className="input-lg round form-control"
-                    placeholder="Masukkan Nama Lengkap"
-                    pattern=".{3,100}"
+                    placeholder="Enter your full name"
+                    value={formData.name}
+                    onChange={handleChange}
                     required
-                    aria-required="true"
                   />
                 </div>
               </div>
@@ -166,25 +217,25 @@ export default function Contact() {
                     id="email"
                     className="input-lg round form-control"
                     placeholder="Masukkan Email"
-                    pattern=".{5,100}"
                     required
-                    aria-required="true"
+                    value={formData.email}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
               <div className="col-lg-6">
                 {/* Email */}
                 <div className="form-group">
-                  <label htmlFor="email">No Ponsel</label>
+                  <label htmlFor="phone">No Ponsel</label>
                   <input
                     type="number"
-                    name="email"
-                    id="email"
+                    name="phone"
+                    id="phone"
                     className="input-lg round form-control"
                     placeholder="Masukkan no Ponsel"
-                    pattern=".{5,100}"
                     required
-                    aria-required="true"
+                    value={formData.phone}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -194,13 +245,13 @@ export default function Contact() {
                   <label htmlFor="email">Domisili</label>
                   <input
                     type="text"
-                    name="alamat"
-                    id="alamat"
+                    name="address"
+                    id="address"
                     className="input-lg round form-control"
                     placeholder="Masukkan alamat anda"
-                    pattern=".{5,100}"
                     required
-                    aria-required="true"
+                    value={formData.address}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -212,26 +263,32 @@ export default function Contact() {
                 <div className="pt-20">
                   <button
                     className="submit_btn btn btn-mod btn-large btn-round btn-hover-anim"
-                    id="submit_btn"
-                    aria-controls="result"
+                    onClick={handleSubmit}
                     style={{
-                      backgroundColor: "#B76E79",  // Rose Gold
-                      color: "#fff",                // White text
-                      border: "2px solid #B76E79",  // Rose Gold border
+                      backgroundColor: "#B76E79", // Rose Gold
+                      color: "#fff", // White text
+                      border: "2px solid #B76E79", // Rose Gold border
                     }}
                   >
                     <span>Daftar Sekarang</span>
                   </button>
                 </div>
               </div>
-              <div className="col-lg-7">
-                {/* Inform Tip */}
+              {message && (
+                <div className="card-footer text-center mt-4">
+                  <p className="text-success">{message}</p>
+                </div>
+              )}
+              {/* <div className="col-lg-7">
                 <div className="form-tip pt-20 pt-sm-0 mt-sm-20">
                   <i className="icon-info size-16" />
-                  Semua kolom wajib diisi. Dengan mengirimkan formulir ini, Anda setuju dengan <a href="#">Syarat &amp; Ketentuan</a> serta{" "}
-                  <a href="#">Kebijakan Privasi.</a>.
+                  Semua kolom wajib diisi. Dengan mengirimkan formulir ini, Anda
+                  setuju dengan <a href="/syarat">
+                    Syarat &amp; Ketentuan
+                  </a>{" "}
+                  serta <a href="/privacy">Kebijakan Privasi.</a>.
                 </div>
-              </div>
+              </div> */}
             </div>
             <div
               id="result"

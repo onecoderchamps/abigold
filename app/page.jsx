@@ -31,7 +31,7 @@ export default function Home() {
           <main id="main">
             <ParallaxContainer
               className="home-section bg-gray-light-1 bg-light-alpha-90 parallax-5 parallax-mousemove-scene scrollSpysection"
-              style={{
+              style={{  
                 backgroundImage:
                   "url(/assets/images/full-width-images/section-bg-1.jpg)",
               }}

@@ -1,6 +1,6 @@
 export const footerLinks = [
-  { name: "Privacy Policy", path: "#" },
-  { name: "Terms & Conditions", path: "#" }
+  { name: "Kebijakan Privasi", path: "privacy" },
+  { name: "Syarat & Ketentuan", path: "syarat" }
 ];
 
 export const footerLinks2 = [
