@@ -65,7 +65,7 @@ export default function Footer1({ dark = false }) {
               />
             </Link>
             <p className="text-white">
-              PT. Aurum Berkah Indonesia <br />
+              PT. Aurum Barakah Indonesia <br />
               {address}
             </p>
             <div className="clearlinks">
