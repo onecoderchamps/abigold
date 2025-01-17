@@ -200,7 +200,7 @@ export default function Contact() {
                     type="text"
                     name="name"
                     id="name"
-                    placeholder="Enter your full name"
+                    placeholder="Masukkan Nama Lengkap"
                     value={formData.name}
                     onChange={handleChange}
                     required
@@ -216,7 +216,7 @@ export default function Contact() {
                     name="email"
                     id="email"
                     className="input-lg round form-control"
-                    placeholder="Masukkan Email"
+                    placeholder="Masukkan email anda"
                     required
                     value={formData.email}
                     onChange={handleChange}
@@ -232,7 +232,7 @@ export default function Contact() {
                     name="phone"
                     id="phone"
                     className="input-lg round form-control"
-                    placeholder="Masukkan no Ponsel"
+                    placeholder="Masukkan nomor ponsel"
                     required
                     value={formData.phone}
                     onChange={handleChange}

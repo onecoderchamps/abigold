@@ -12,7 +12,7 @@ export default function Form3() {
             name="name"
             id="name"
             className="input-md round form-control"
-            placeholder="Enter your name"
+            placeholder="Masukkan Nama Lengkap"
             maxLength={100}
             required
             aria-required="true"

@@ -12,7 +12,7 @@ export default function Form2() {
             name="name"
             id="name"
             className="input-lg input-circle form-control"
-            placeholder="Enter your name"
+            placeholder="Masukkan Nama Lengkap"
             maxLength={100}
             required
             aria-required="true"

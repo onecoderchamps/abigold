@@ -13,7 +13,7 @@ export default function Form1() {
               name="name"
               id="name"
               className="input-sm underline form-control"
-              placeholder="Enter your name"
+              placeholder="Masukkan Nama Lengkap"
               maxLength={100}
               required
               aria-required="true"

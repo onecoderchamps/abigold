@@ -12,7 +12,7 @@ export default function Form5() {
             name="name"
             id="name"
             className="input-lg round form-control"
-            placeholder="Enter your name"
+            placeholder="Masukkan Nama Lengkap"
             maxLength={100}
             required
             aria-required="true"
