@@ -82,10 +82,10 @@ export default function Home1({ onePage = false, dark = false }) {
         <ServiceHarga />
       </section>
 
-      <section className={`page-section  ${dark ? " light-content" : ""}`}>
+      {/* <section className={`page-section  ${dark ? " light-content" : ""}`}>
         {dark ? <Brands2 /> : <Brands />}
-      </section>
-      <hr className={`mt-0 mb-0 ${dark ? "white" : ""}`} />
+      </section> */}
+      {/* <hr className={`mt-0 mb-0 ${dark ? "white" : ""}`} /> */}
 
       <section className={`page-section ${dark ? "light-content" : ""}`}>
         {" "}
